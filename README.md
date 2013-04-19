@@ -43,11 +43,15 @@ Run this simple demo to see the thing in action.
 
 1. Install required cpan modules for plack:
 
+```bash
     $ cpanm Plack::Builder Plack::Request Plack::Response
+```
 
 2. Run the plack app
 
+```bash
     $ client_id=$CLIENT_ID client_secret=$CLIENT_SECRET plackup bin/demo.pl
+```
 
 3. Point your browser to http://localhost:5000
 
