@@ -17,8 +17,8 @@ use OAuth2::Google::Plus::UserInfo;
 
 sub google_plus {
     my $plus = OAuth2::Google::Plus->new(
-        client_id     => '906630053384-587d7vnsmiu2a402su5747vrf7qe72h8.apps.googleusercontent.com',
-        client_secret => '1kv-h7za0GBZDq9aqUPejrVg',
+        client_id     => $ENV{client_id},
+        client_secret => $ENV{client_secret},
         redirect_uri  => 'http://localhost:5000/',
     );
 

@@ -1,6 +1,8 @@
 use strict;
 use warnings;
 
+# ABSTRACT: simple wrapper for google+ OAuth2 API
+
 =NAME
 
 =SYNOPSYS
@@ -23,6 +25,16 @@ use warnings;
 
     # use $authorization_token
     my $info = OAuth2::Google::Plus::UserInfo->new( access_token => $access_token );
+
+=item authorization_uri
+
+Construct an URI object for authorization. This url should be use to provide a login
+button to the user
+
+=item authorize ( authorization_code => $code )
+
+Use an authorization_token to retrieve an access_token from google. This access token
+can be used to retrieve information about the user who authorized.
 
 =cut
 

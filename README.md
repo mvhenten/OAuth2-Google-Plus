@@ -23,6 +23,35 @@ Perl module that implements the OAuth2 API from google.
     # use $authorization_token
     my $info = OAuth2::Google::Plus::UserInfo->new( access_token => $access_token );
 
+## INSTALLATION
+
+This is a Dist::Zilla package. run `dzil install` to install this package.
+Alternatively, install the dependencies and include this in your codebase somewhere
+
+    $ cpanm Carp::Assert \
+        Data::Dumper \
+        ExtUtils::MakeMaker \
+        JSON \
+        LWP::UserAgent \
+        Moo \
+        MooX::late \
+        URI
+
+## DEMO
+
+Run this simple demo to see the thing in action.
+
+1. Install required cpan modules for plack:
+
+    $ cpanm Plack::Builder Plack::Request Plack::Response
+
+2. Run the plack app
+
+    $ client_id=$CLIENT_ID client_secret=$CLIENT_SECRET plackup bin/demo.pl
+
+3. Point your browser to http://localhost:5000
+
+
 ## TODO
 
-Currently this module only implements the userinfo endpoint. 
+Currently this module only implements the userinfo endpoint.
