@@ -78,10 +78,24 @@ can be used to retrieve information about the user who authorized.
         required => 1,
     );
 
+    has response => (
+        is  => 'ro',
+        writer => '_set_response',
+    );
+
+    has _endpoint => (
+        is => 'ro',
+        lazy_build => 1,
+    );
+
+    sub _build__endpoint {
+        return OAuth2::Google::Plus::ENDPOINT_URL();
+    }
+
     sub authorization_uri {
         my ( $self ) = @_;
 
-        my $uri = URI->new( ENDPOINT_URL() . '/auth' );
+        my $uri = URI->new( $self->_endpoint . '/auth' );
 
         $uri->query_form(
             access_type     => 'offline',
@@ -100,7 +114,7 @@ can be used to retrieve information about the user who authorized.
 
         assert( $params{authorization_code}, 'missing named argument "authorization_code"');
 
-        my $uri = URI->new( OAuth2::Google::Plus::ENDPOINT_URL() . '/token' );
+        my $uri = URI->new( $self->_endpoint . '/token' );
         my $ua  = LWP::UserAgent->new;
 
         my $response = $ua->post( $uri, {
@@ -112,8 +126,14 @@ can be used to retrieve information about the user who authorized.
             scope           => $self->scope,
         });
 
-        my $json     = decode_json( $response->content );
-        return $json->{access_token};
+        $self->_set_response( $response );
+
+        if( $response->is_success ){
+            my $json     = decode_json( $response->content );
+            return $json->{access_token};
+        }
+
+        return;
     }
 }
 
