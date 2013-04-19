@@ -39,21 +39,25 @@ Alternatively, install the dependencies and include this in your codebase somewh
 
 ## DEMO
 
+You need to create a `client_id` and a `client_secret` in google's api console for a **web application**
+on https://code.google.com/apis/console
+
+Allow the `redirect_uri` for http://localhost:5000
 Run this simple demo to see the thing in action.
 
-1. Install required cpan modules for plack:
+Install required cpan modules for plack:
 
 ```bash
     $ cpanm Plack::Builder Plack::Request Plack::Response
 ```
 
-2. Run the plack app
+Run the plack app
 
 ```bash
     $ client_id=$CLIENT_ID client_secret=$CLIENT_SECRET plackup bin/demo.pl
 ```
 
-3. Point your browser to http://localhost:5000
+Point your browser to http://localhost:5000
 
 
 ## TODO
