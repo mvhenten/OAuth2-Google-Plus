@@ -6,14 +6,11 @@ use warnings;
 use Plack::Request;
 use Plack::Response;
 use Plack::Builder;
-use Data::Dumper;
-use Moo;
 
 use FindBin;
 use lib "$FindBin::Bin/../lib";
 use OAuth2::Google::Plus;
 use OAuth2::Google::Plus::UserInfo;
-
 
 sub google_plus {
     my $plus = OAuth2::Google::Plus->new(
