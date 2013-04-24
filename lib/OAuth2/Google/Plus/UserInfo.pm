@@ -1,6 +1,29 @@
 use strict;
 use warnings;
 
+=NAME
+
+OAuth2::Google::Plus::UserInfo
+
+=DESCRIPTION
+
+implements acallback to https://www.googleapis.com/oauth2/v2/userinfo, retrieving
+the users google-id, email and verification status.
+
+=SYNOPSYS
+
+    use OAuth2::Google::Plus::UserInfo;
+
+    my $info = OAuth2::Google::Plus::UserInfo->new( access_token => $access_token );
+
+    if( $info->is_success ) {
+        my $email = $info->email;
+
+        # ...
+    }
+
+=cut
+
 {
     package OAuth2::Google::Plus::UserInfo;
     use Moo;

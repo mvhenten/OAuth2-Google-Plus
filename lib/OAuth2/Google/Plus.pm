@@ -5,6 +5,14 @@ use warnings;
 
 =NAME
 
+OAuth2::Google::Plus
+
+=DESCRIPTION
+
+This is an implementation of the google OAuth2 API. It's a rather specific
+implementation of this specific OAuth2 provider. Small implementation details
+differ per provider, this module attempts to abstract and document the Google version.
+
 =SYNOPSYS
 
     use OAuth2::Google::Plus;
@@ -37,7 +45,6 @@ Use an authorization_token to retrieve an access_token from google. This access 
 can be used to retrieve information about the user who authorized.
 
 =cut
-
 
 {
     package OAuth2::Google::Plus;
