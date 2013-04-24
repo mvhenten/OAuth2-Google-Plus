@@ -28,14 +28,7 @@ Perl module that implements the OAuth2 API from google.
 This is a Dist::Zilla package. run `dzil install` to install this package.
 Alternatively, install the dependencies and include this in your codebase somewhere
 
-    $ cpanm Carp::Assert \
-        Data::Dumper \
-        ExtUtils::MakeMaker \
-        JSON \
-        LWP::UserAgent \
-        Moo \
-        MooX::late \
-        URI
+    $ dzil listdeps | cpanm
 
 ## DEMO
 
