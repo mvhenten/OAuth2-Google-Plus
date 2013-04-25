@@ -1,16 +1,16 @@
 use strict;
 use warnings;
 
-=NAME
+=head1 NAME
 
 OAuth2::Google::Plus::UserInfo
 
-=DESCRIPTION
+=head1 DESCRIPTION
 
 implements acallback to https://www.googleapis.com/oauth2/v2/userinfo, retrieving
 the users google-id, email and verification status.
 
-=SYNOPSYS
+=head1 SYNOPSYS
 
     use OAuth2::Google::Plus::UserInfo;
 

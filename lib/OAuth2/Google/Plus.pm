@@ -3,17 +3,17 @@ use warnings;
 
 # ABSTRACT: simple wrapper for google+ OAuth2 API
 
-=NAME
+=head1 NAME
 
 OAuth2::Google::Plus
 
-=DESCRIPTION
+=head1 DESCRIPTION
 
 This is an implementation of the google OAuth2 API. It's a rather specific
 implementation of this specific OAuth2 provider. Small implementation details
 differ per provider, this module attempts to abstract and document the Google version.
 
-=SYNOPSYS
+=head1 SYNOPSYS
 
     use OAuth2::Google::Plus;
 
@@ -34,6 +34,8 @@ differ per provider, this module attempts to abstract and document the Google ve
     # use $authorization_token
     my $info = OAuth2::Google::Plus::UserInfo->new( access_token => $access_token );
 
+=over
+
 =item authorization_uri
 
 Construct an URI object for authorization. This url should be use to provide a login
@@ -43,6 +45,8 @@ button to the user
 
 Use an authorization_token to retrieve an access_token from google. This access token
 can be used to retrieve information about the user who authorized.
+
+=back
 
 =cut
 
