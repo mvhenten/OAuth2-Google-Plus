@@ -83,6 +83,12 @@ can be used to retrieve information about the user who authorized.
         required => 1,
     );
 
+    has state => (
+        is       => 'ro',
+        isa      => 'Str',
+        required => 0,
+    );
+
     has redirect_uri => (
         is       => 'ro',
         isa      => 'Str',
@@ -115,6 +121,7 @@ can be used to retrieve information about the user who authorized.
             redirect_uri    => $self->redirect_uri,
             response_type   => 'code',
             scope           => $self->scope,
+            ($self->state ? (state           => $self->state) : ()),
         );
 
         return $uri;

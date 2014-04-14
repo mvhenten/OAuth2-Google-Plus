@@ -20,12 +20,26 @@ sub test_authorization_uri : Test(2) {
     my $plus = OAuth2::Google::Plus->new(
         client_id     => 'CLIENT ID',
         client_secret => 'CLIENT SECRET',
-        redirect_uri  => 'http://test/',
+        redirect_uri  => 'http://test/'
     );
 
     my $expect = 'https://accounts.google.com/o/oauth2/auth?access_type=offline&approval_prompt=force&client_id=CLIENT+ID&redirect_uri=http%3A%2F%2Ftest%2F&response_type=code&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email';
 
     isa_ok( $plus->authorization_uri, 'URI' );
+    is( $plus->authorization_uri, $expect );
+};
+
+
+sub test_authorization_uri_state_param : Test(1) {
+    my $plus = OAuth2::Google::Plus->new(
+        client_id     => 'CLIENT ID',
+        client_secret => 'CLIENT SECRET',
+        redirect_uri  => 'http://test/',
+        state         => 'abc',
+    );
+
+    my $expect = 'https://accounts.google.com/o/oauth2/auth?access_type=offline&approval_prompt=force&client_id=CLIENT+ID&redirect_uri=http%3A%2F%2Ftest%2F&response_type=code&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&state=abc';
+
     is( $plus->authorization_uri, $expect );
 };
 
